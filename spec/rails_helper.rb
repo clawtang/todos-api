@@ -67,7 +67,10 @@ RSpec.configure do |config|
   # add 'FactoryGirl' methods
   config.include FactoryGirl::Syntax::Methods
 
-  config.include RequestSpecHelper, type: :request
+  # config.include RequestSpecHelper, type: :request
+
+  config.include RequestSpecHelper
+  config.include ControllerSpecHelper
   # start by truncating all the tables but then use the faster trancsaction strategy the rest of the time.
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
